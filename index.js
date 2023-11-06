@@ -2,6 +2,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const gm = require("./utils/generateMarkdown.js");
+
 // const getHtmlPage = ()
 
 // TODO: Create an array of questions for user input
@@ -70,7 +71,8 @@ const questions = [
 function getReadMePage(response) {
   let content = `
   
-  ${gm.generateMarkdown(response)}
+  ${gm.generateMarkdown(response)} ${gm.renderLicenseBadge(response.license)}
+
 
 ## Description 
 
