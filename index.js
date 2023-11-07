@@ -3,7 +3,6 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const gm = require("./utils/generateMarkdown.js");
 
-// const getHtmlPage = ()
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -17,59 +16,50 @@ const questions = [
     message: "Write description about your Project.",
     name: "description",
   },
-    {
-      type: "input",
-      message: "Write Table of Contents of your Project.",
-      name: "contents",
-    },
-    {
-      type: "input",
-      message: "Instalation instructions",
-      name: "install",
-    },
-    {
-      type: "input",
-      message: "Usage information",
-      name: "usage",
-    },
-    {
-      type: "list",
-      message: "License",
-      name: "license",
-      choices: ["MIT", "Apache License 2.0", "Eclipse Public License 2.0"],
-    },
-    {
-      type: "input",
-      message: "Contribution guidelines",
-      name: "contribution",
-    },
-    {
-      type: "input",
-      message: "Tests instructions",
-      name: "tests",
-    },
-    {
-      type: "input",
-      message: "Questions",
-      name: "question",
-    },
+  {
+    type: "input",
+    message: "Instalation instructions",
+    name: "install",
+  },
+  {
+    type: "input",
+    message: "Usage information",
+    name: "usage",
+  },
+  {
+    type: "list",
+    message: "License",
+    name: "license",
+    choices: [
+      "Apache License 2.0",
+      "Boost Software License 1.0",
+      "BSD 3-Clause License",
+      "BSD 2-Clause License",
+      "Eclipse Public License 2.0",
+      "GNU LGPL v3",
+      "MIT",
+      "Mozilla Public License 2.0",
+    ],
+  },
+  {
+    type: "input",
+    message: "Contribution guidelines",
+    name: "contribution",
+  },
+  {
+    type: "input",
+    message: "Tests instructions",
+    name: "tests",
+  },
+  {
+    type: "input",
+    message: "Questions",
+    name: "question",
+  },
 ];
 
-// TODO: Create a function to write README file
-// const getReadMePage = (response) =>
-// `"${response.title}",
-// "${response.description}"
-// "${response.contents}"
-// "${response.install}"
-// "${response.usage}"
-// "${response.license}"
-// "${response.contribution}"
-// "${response.tests}"
-// "${response.question}"
-// `;
 
-function getReadMePage(response) {
-  let content = `
+const getReadMePage = (response) => `
   
   ${gm.generateMarkdown(response)} ${gm.renderLicenseBadge(response.license)}
 
@@ -80,7 +70,13 @@ ${response.description}
 
 ## Table of Contents 
 
-${response.contents}
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Credits](#credits)
+- [Tests](#tests)
+- [Tests](#tests)
+- [Question](#question)
 
 ## Installation 
 
@@ -92,7 +88,7 @@ ${response.usage}
 
 ## License 
 
-${response.license}
+${gm.renderLicenseSection(response.license)}
 
 ## Credits 
 
@@ -104,17 +100,15 @@ ${response.tests}
 
 ## Question 
 
-${response.question}
-`;
+${response.question}`;
 
-return content;
-}
 
+// TODO: Create a function to write README file
 function writeToFile(fileName, data) {
   const readMePageContent = getReadMePage(data);
   console.log(readMePageContent);
-  
-  fs.writeFile("./generated/"+fileName, readMePageContent, (err) =>
+
+  fs.writeFile("./generated/" + fileName, readMePageContent, (err) =>
     err ? console.error(err) : console.log("Readme file created!")
   );
 }
@@ -122,7 +116,6 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((response) => {
-    // console.log(response);
     writeToFile("README.md", response);
   });
 }
