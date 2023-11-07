@@ -61,7 +61,7 @@ const questions = [
 
 const getReadMePage = (response) => `
   
-  ${gm.generateMarkdown(response)} ${gm.renderLicenseBadge(response.license)}
+${gm.generateMarkdown(response)} ${gm.renderLicenseBadge(response.license)}
 
 
 ## Description 
@@ -74,7 +74,6 @@ ${response.description}
 - [Usage](#usage)
 - [License](#license)
 - [Credits](#credits)
-- [Tests](#tests)
 - [Tests](#tests)
 - [Question](#question)
 
