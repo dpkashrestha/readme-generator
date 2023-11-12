@@ -1,6 +1,6 @@
 
   
-  # Test Project ![Static Badge](https://img.shields.io/badge/license-BSD_3_Clause_License-blue)
+# Test Project ![Static Badge](https://img.shields.io/badge/license-Boost_Software_License_1.0-blue)
 
 
 ## Description 
@@ -18,15 +18,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Installation 
 
-None
+none
 
 ## Usage 
 
-To run this program, use command: `node index.js`
+To run this program, use command: node index.js
 
 ## License 
 
-<a href=https://opensource.org/licenses/BSD-3-Clause>BSD 3-Clause License</a>
+<a href=https://www.boost.org/LICENSE_1_0.txt>Boost Software License 1.0</a>
 
 ## Credits 
 
@@ -38,4 +38,7 @@ Run tests using: npm run test
 
 ## Question 
 
-If you have any questions, reach out to info@example.com.
+If you have any questions, please contact me at dpkashrestha7@gmail.com.
+
+Here is my GitHub link 
+https://github.com/dpkashrestha

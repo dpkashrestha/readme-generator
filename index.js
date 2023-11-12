@@ -53,8 +53,13 @@ const questions = [
   },
   {
     type: "input",
-    message: "Questions",
-    name: "question",
+    message: "Write your Email address to contact you",
+    name: "email",
+  },
+  {
+    type: "input",
+    message: "Write your GitHub user name to help you",
+    name: "github",
   },
 ];
 
@@ -99,7 +104,10 @@ ${response.tests}
 
 ## Question 
 
-${response.question}`;
+If you have any questions, please contact me at ${response.email}.
+
+Here is my GitHub link 
+https://github.com/${response.github}`;
 
 
 // TODO: Create a function to write README file
